@@ -1,0 +1,24 @@
+<% if(products){ %>
+  <div class="row">
+    <ul class="list-group">
+      <% products.forEach(function(product) { %>
+        <li class="list-group-item">
+          <span class="badge"><%= product.qty %></span>
+          <strong><%= product.item.title %></strong>
+          <span class="label label-success">$<%= product.price %></span>
+        </li>
+      <% }); %>
+    </ul>
+  </div>
+  <div class="row">
+    <strong>Total : <%= totalPrice %></strong>
+  </div>
+  <hr>
+  <div class="row">
+    <a type="button" class="btn btn-outline-success" href="/checkout">Checkout</a>
+  </div>
+<% } else { %>
+  <div class="row">
+    <h2>No Items in cart</h2>
+  </div>
+<% } %>

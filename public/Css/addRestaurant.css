@@ -1,0 +1,125 @@
+.navbar-nav a{
+  font-family: poppins;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navbar-dark .navbar-brand{
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+
+.dropdown-menu .dropdown-item{
+    color: white;
+}
+
+.title{
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  transform: translate(-50%,-50%);
+  color: white;
+  letter-spacing: 2px;
+  margin-top: 0px;
+  font-family: merienda;
+  font-weight: bold;
+}
+
+
+header{
+    background-image: url('../images/aboutus.jpg');
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.vertical-nav {
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+  margin-top: 60px;
+}
+
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+}
+
+body {
+  background: #599fd9;
+  /*background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);*/
+  background: linear-gradient(to right, #C0C0C0, #C0C0C0);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.control-label{
+  font-size: 23px;
+  font-family: poppins;
+}
+
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 30%;
+    height: 200px;
+  background-position: center center;
+  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background-color:#fff;
+  background-size: cover;
+  background-repeat:no-repeat;
+  display: inline-block;
+  box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
+}

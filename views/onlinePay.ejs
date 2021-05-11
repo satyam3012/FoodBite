@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Payment</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" type="text/css" href="/Css/onlinePay.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="   sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <%- include('./partials/header') %>
+
+  <header>
+  <div class="title">
+   </div>
+  </header>
+
+	<div class="container">
+		<div class="jumbotron text-center">
+			<h1 style="font-weight: bold; font-size: 50px;">Online Payment</h1>
+			<p>Enter your payment details below.</p>
+		</div>
+	</div>
+
+	<div class="container">
+	<form  action="/checkout" method="POST">
+	 <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="credit-card-div">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <h5 class="text-muted">Credit Card Number</h5>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <input type="text" class="form-control" name="first" placeholder="0000" maxlength="4" required="">
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <input type="text" class="form-control" name="second" placeholder="0000" maxlength="4" required="">
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <input type="text" class="form-control" name="third" placeholder="0000" maxlength="4" required="">
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <input type="text" class="form-control" name="forth" placeholder="0000" maxlength="4" required="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row ">
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <span class="help-block text-muted small-font"> Expiry Month</span>
+                                <select class="form-control" style="width:100%" required="" name="month">
+								  <option disabled selected>MM</option>
+								  <option>01</option>
+								  <option>02</option>
+								  <option>03</option>
+								  <option>04</option>
+								  <option>05</option>
+							    <option>06</option>
+								  <option>07</option>
+								  <option>08</option>
+								  <option>09</option>
+								  <option>10</option>
+								  <option>11</option>
+							      <option>12</option>
+								</select>
+                            </div>
+                            <div class="col-md-3 col-sm-3 col-xs-3">
+                                <span class="help-block text-muted small-font">  Expiry Year</span>
+                                 <select class="form-control" style="width:100%" required="" name="year">
+								  <option disabled selected>YYYY</option>
+								  <option>2020</option>
+								  <option>2021</option>
+								  <option>2022</option>
+								  <option>2023</option>
+								  <option>2024</option>
+							      <option>2025</option>
+								  <option>2026</option>
+								  <option>2027</option>
+								  <option>2028</option>
+								  <option>2029</option>
+								  <option>2030</option>
+								</select>
+                      </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3">
+                          <span class="help-block text-muted small-font">  CVC</span>
+                          	<input type="text" class="form-control" name="cvc" placeholder="CVC" maxlength="3" required="">
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3"><br>
+                            <img src="images/creditcard.png" class="img-rounded"  required="">
+                        </div>
+                        </div>
+
+                        <br>
+                        <div class="row ">
+                            <div class="col-md-12 pad-adjust">
+                                <input type="text" class="form-control" name="holdername" placeholder="Name On The Card" required="">
+                            </div>
+                        </div>
+												<br>
+												<div class="row ">
+                            <div class="col-md-12 pad-adjust">
+                                <input type="text" class="form-control" name="address" placeholder="Your Address" required="">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-12 pad-adjust">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked class="text-muted" required=""> Save details for fast payments. <a href="#">Learn More</a>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                             <a href="/home"><input  class="btn btn-danger btn-block" value="CANCEL"></a>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 pad-adjust">
+                              <a href="#"><input type="submit" class="btn btn-success btn-block" value="PAY NOW" required=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		<form>
+  </div>
+
+  <br><br><br><br><br><br>
+
+
+<script type="text/javascript">
+    $(function () {
+        $(window).on('scroll', function () {
+            if ( $(window).scrollTop() > 10 ) {
+                $('.navbar').addClass('active');
+            } else {
+                $('.navbar').removeClass('active');
+            }
+        });
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

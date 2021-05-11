@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Order</title>
+    <link rel="stylesheet" type="text/css" href="/Css/myOrder.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="   sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+</head>
+<body>
+
+  <%- include('./partials/header') %>
+
+  <header>
+  <div class="title">
+   </div>
+  </header>
+
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1 style="font-weight: bold;font-family: Comic Sans MS;">My Orders</h1>
+             <h4 class="mb-0">Thanks for your Order, <span><%= currentUser.username%></span> !</h4>
+        </div>
+    </div>
+
+    <div class="container">
+        <% orders.forEach(function(order) { %>
+            <div class="row">
+                <div class="col">
+                        <div class="card card-1">
+                        <div class="card-body">
+                            <div class="media">
+                                <div class="sq align-self-center "> <img class="img-fluid my-auto align-self-center mr-2 mr-md-4 pl-0 p-0 m-0" src="images/pizza.jpg" width="135" height="135" /> </div>
+                                <div class="media-body my-auto text-left">
+                                <div class="row my-auto flex-column flex-md-row">
+                                   <div class="col-md-6 my-auto">
+                                        <p class="mb-0"><%= order.address %></p>
+                                        <p class="mb-0">ORDER #<%= Math.floor(Math.random() * 10000000) + 1 %> | Sun,Mar 8,2020,10:45 PM</p>                                    </div>
+                                <div class="col-md-6 my-auto text-right">
+                                    <p class="mb-0">Delivered on Sun,Mar 8,2020,11:00 PM<i class="fas fa-check-circle"></i></p>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                            <hr class="my-3">
+                            <div class="row">
+                                <div class="col-md-6 mb-0">
+                                    <p><%= order.item.foodName %>&#215;1</p>
+                                    <a href="#" class="btn btn-success">REORDER</a>
+                                </div>
+                                <div class="col-md-6 mb-0 text-right">
+                                    <p>Total Paid:&#8377;<%= order.cart.totalPrice %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+        </div>
+        <br>
+ <script type="text/javascript">
+  $(function () {
+      $(window).on('scroll', function () {
+          if ( $(window).scrollTop() > 10 ) {
+              $('.navbar').addClass('active');
+          } else {
+              $('.navbar').removeClass('active');
+          }
+      });
+  });
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

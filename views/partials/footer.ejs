@@ -1,0 +1,113 @@
+<footer class="page-footer font-small  pt-4"  style="background: #2d3246;">
+  <!-- Footer Links -->
+  <div class="container text-center text-md-left">
+    <!-- Footer links -->
+    <div class="row text-center text-md-left mt-3 pb-3">
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold" style="color: #FFA500;">FOOdBite</h6>
+        <p>"FoodBite 24/7 has the best application for online ordering.Fantastic choice of restaurants,low delivery price and great customer service".</p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+      <!-- Grid column -->
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bol">about us</h6>
+        <p>
+          <a class="grey" href="/about">About Us</a>
+        </p>
+        <p>
+          <a class="grey" href="/contact">Contact Us</a>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <hr class="w-100 clearfix d-md-none">
+      <!-- Grid column -->
+        <% if(!currentUser) { %>
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+            <h6 class="text-uppercase mb-4 font-weight-bold">My Account</h6>
+            <p>
+              <a class="grey" href="/loginUser">My Profile</a>
+            </p>
+            <p>
+              <a class="grey" href="/loginUser">My Cart</a>
+            </p>
+            <p>
+              <a class="grey" href="/loginUser">My Order</a>
+            </p>
+          </div>
+          <% } else { %>
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">My Account</h6>
+              <p>
+                <a class="grey" href="/user/<%= currentUser._id%>/userProfile">My Profile</a>
+              </p>
+              <p>
+                <a class="grey" href="/shoppingCart">My Cart</a>
+              </p>
+              <p>
+                <a class="grey" href="/myOrders">My Order</a>
+              </p>
+            </div>
+            <% } %>
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none">
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Track Order</h6>
+              <p>
+                <a class="grey" href="#">Track Order</a>
+              </p>
+              <h6 class="text-uppercase mb-4 font-weight-bold">Admin</h6>
+                <p>
+                   <a href="registerAdmin" class="grey" style="text-decoration: none;">Register</a>
+                  </p>
+                  <p>
+                   <a href="loginAdmin" class="grey" style="text-decoration: none;">Login</a>
+                  </p>
+            </div>
+            <!-- Grid column -->
+
+
+    </div>
+    <!-- Footer links -->
+
+    <hr>
+
+    <!-- Grid row -->
+    <div class="row d-flex align-items-center">
+   <!-- Grid column -->
+      <div class="col-md-7 col-lg-8">
+        <!--Copyright-->
+        <p class="text-center text-md-left">© 2020 Copyright:
+          <a class="grey" href="#">
+            <strong> Foodbite.com</strong>
+          </a>
+        </p>
+
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-5 col-lg-4 ml-lg-0">
+
+        <!-- Social buttons -->
+        <div class="text-center text-md-right">
+
+      <a href="#" class="fa fa-facebook"></a>
+			<a href="#" class="fa fa-twitter"></a>
+			<a href="#" class="fa fa-google"></a>
+			<a href="#" class="fa fa-linkedin"></a>
+			<a href="#" class="fa fa-instagram"></a>
+        </div>
+
+      </div>
+      <!-- Grid column -->
+
+    </div>
+    <!-- Grid row -->
+
+  </div>
+  <!-- Footer Links -->

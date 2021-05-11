@@ -1,0 +1,99 @@
+*{
+    font-family: 'Josefin Sans', sans-serif;
+}
+body{
+    font-family: poppins;
+    margin: 0px;
+    padding: 0p;
+}
+
+.navbar-nav a{
+    font-family: poppins;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.navbar-dark .navbar-brand{
+    color: #ffffff;
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+header{
+	background-image: url('../images/aboutus.jpg');
+	height: 55vh;
+	background-size: cover;
+	background-position: center;
+}
+
+.title{
+	position: absolute;
+	top: 70%;
+	left: 20%;
+	transform: translate(-50%,-50%);
+	color: white;
+	font-family: poppins;
+}
+
+.dropdown-menu .dropdown-item{
+    color: white;
+}
+
+.head{
+    margin-top: 20px;
+    font-weight: bold;
+    font-family: Comic Sans MS;
+}
+
+.personal-info{
+    font-weight: bold;
+}
+
+
+body
+{
+  background-color:#f5f5f5;
+}
+.imgUp
+{
+  margin-bottom:15px;
+  margin-left: 20px;
+}
+
+.control-label{
+  font-size: 23px;
+  font-family: poppins;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+#img-upload{
+    width: 100%;
+    height: 200px;
+  background-position:center;
+  background:url(http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg);
+  background-color:#fff;
+  background-size: cover;
+  background-repeat:no-repeat;
+  display: inline-block;
+  box-shadow:0px -3px 6px 2px rgba(0,0,0,0.2);
+}

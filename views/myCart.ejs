@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cart</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" type="text/css" href="/Css/myCart.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="   sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <%- include('./partials/header') %>
+   <header>
+   <div class="title">
+   	</div>
+   </header>
+
+	<div class="container">
+	<div class="jumbotron text-center">
+		<h1 style="font-size:50px; font-weight: bold;">Your Food Cart</h1>
+		<p style="font-family: Brush Script MT;">Looks tasty...!!!</p>
+	</div>
+	</div>
+	<br>
+  <br>
+  <br>
+
+<% if(products && session.cart!=null){ %>
+	<div class="container">
+		<div class="container">
+	     <table id="cart" class="table table-hover table-condensed">
+						<thead>
+						<tr>
+							<th style="width:65%">Product</th>
+							<th style="width:15%">Price</th>
+							<th style="width:10%">Quantity</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+							<% products.forEach(function(product) { %>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-10">
+										<h4 class="nomargin"><%= product.item.foodName %></h4>
+										  	<p><%= product.item.foodDescription %></p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">&#8377;<%= product.item.foodPrice %></td>
+							<td data-th="Quantity">
+								<%= product.qty %>
+							</td>
+							<td></td>
+							</tr>
+							<% }); %>
+						</tbody>
+						<tfoot>
+						<tr>
+							<td><a href="/home" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td data-th="Subtotal" class="text-center">Total: &#8377;<%= totalPrice %></td>
+							<td><a href="/checkout" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+							<td colspan="1" class="hidden-xs"></td>
+						</tr>
+					</tfoot>
+				</table>
+				 <% } else{ %>
+				<div class="col-md-12">
+						<div class="container sticky-top">
+								<div class="container text-center" id="cart-container" style="width: 600px; margin-left: 250px;">
+								<h1>No items in cart</h1>
+								</div>
+						</div>
+				</div>
+		<% } %>
+</div>
+</div>
+
+
+
+ <script type="text/javascript">
+  $(function () {
+      $(window).on('scroll', function () {
+          if ( $(window).scrollTop() > 10 ) {
+              $('.navbar').addClass('active');
+          } else {
+              $('.navbar').removeClass('active');
+          }
+      });
+  });
+</script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

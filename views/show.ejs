@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fooddy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/Css/show.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="   sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+</head>
+<body data-spy="scroll" data-target="#side" data-offset="50">
+    <div>
+      <div class="header">
+        <%- include('./partials/header')%>
+       <div class="container sticky-top" id="myHeader">
+        <div class="row">
+         <div class="col-md-2">
+           <img class="imgs" src="/images/<%= restaurant.image %>">
+         </div>
+         <div class="col-md-4">
+          <h1 class="hs"><%= restaurant.name %></h1>
+          <p><%= restaurant.description %></p>
+          <p><%= restaurant.address %></p>
+         </div>
+         <div class="col-md-2">
+          <p><i class="fa fa-star star"></i> 4.4</p>
+          <p>100+ Ratings</p>
+         <div class="vl"></div>
+         </div>
+         <div class="col-md-2">
+          <p class="star">45 mins</p>
+          <p>Delivery Time</p>
+         <div class="vl"></div>
+         </div>
+         <div class="col-md-2">
+          <p class="star">&#8377; 400</p>
+          <p>Cost for two</p>
+          <div class="vl"></div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+
+ <div class="container position-relative" id="content">
+        <div class="row h-100 mt-5">
+            <div class="col-md-2 bg-light" id="left">
+                <nav class="mt-5 mb-3 sticky-top" id="side">
+                    <ul class="nav flex-md-column flex-row justify-content-between nav nav-pills flex-column" id="sidenav">
+                        <li class="nav-item text-center"><a href="#Recommended" class="nav-link pl-0 active">Recommended</a></li>
+                        <li class="nav-item text-center"><a href="#Executive" class="nav-link pl-0">Executive</a></li>
+                        <li class="nav-item text-center"><a href="#Brunch" class="nav-link pl-0">Brunch Box</a></li>
+                        <li class="nav-item text-center"><a href="#Basmati" class="nav-link pl-0">Basmati Rice</a></li>
+                        <li class="nav-item text-center"><a href="#Biryani" class="nav-link pl-0">Biryani</a></li>
+                        <li class="nav-item text-center"><a href="#Paratha" class="nav-link pl-0">Paratha </a></li>
+                        <li class="nav-item text-center"><a href="#Kulcha" class="nav-link pl-0">Kulcha Bread</a></li>
+                        <li class="nav-item text-center"><a href="#Starter" class="nav-link pl-0">Starter</a></li>
+                        <li class="nav-item text-center"><a href="#Carte" class="nav-link pl-0">A La Carte</a></li>
+                        <li class="nav-item text-center"><a href="#Desserts" class="nav-link pl-0">Desserts</a></li>
+                        <li class="nav-item text-center"><a href="#Beverages" class="nav-link pl-0">Beverages</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+     <div class="col-md-6">
+        <div class="tab-content py-3 position-relative">
+          <div class="tab-pane active position-relative" id="tab1" role="tabpanel">
+            <h1>Recommended</h1>
+              <br>
+            <div class="row row-cols-1 row-cols-md-3">
+            <% restaurant.fooditems.forEach(data => { %>
+              <div class="anchor" id="<%= data.foodCategory%>"></div>
+              <div class="col mb-3 col-md-6 col-sm-6">
+                <div class="card h-100" style="width: 17rem; margin-left: 10px;">
+                 <img src="/images/<%= data.foodImage %>" class="card-img-top" alt="..." height="200px">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= data.foodName %></h5>
+                     <p><%= data.foodDescription %></p>
+                   </div>
+                  <h5 class="text-danger rs">&#8377;<span><%= data.foodPrice %></span></h5>
+                  <a href="/home/<%= restaurant._id %>/cart/<%= data._id %>"><input type="submit" name="add" class="btn btn-outline-success add" value="Add to Cart"></a>
+                </div>
+              </div>
+              <% }); %>
+            </div>
+           </div>
+           <div class="v2"></div>
+          </div>
+        </div>
+
+        <% if(products && session.cart!=null){ %>
+          <div class="col-md-3">
+            <div class="container sticky-top">
+              <div class="container" id="cart-container" style="width: 430px; margin-left: 0px;">
+              <h1>Shopping Cart</h1>
+              <table id="cart" class="table table-hover table-condensed">
+                <thead>
+                   <tr>
+                    <th style="width:50%">Product</th>
+                    <th style="width:10%">Price</th>
+                    <th style="width:8%">Quantity</th>
+                    <th style="width:10%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% products.forEach(function(product){ %>
+                        <tr>
+                          <td data-th="Product">
+                            <div class="row">
+                              <div class="col-sm-10">
+                                <p class="nomargin" style="font-size:10px;"><%= product.item.foodName %></p>
+                              </div>
+                              </div>
+                            </td>
+                            <td data-th="Price">&#8377;<%= product.foodPrice %></td>
+                            <td data-th="Quantity">
+                                <input type="text" class="form-control text-center" value="<%= product.qty %>">
+                            </td>
+                            <td class="actions" data-th="">
+                              <a href="/home/<%= restaurant._id %>/removeCart/<%= product.item._id %>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                              <a href="/home/<%= restaurant._id %>/removeAll/<%= product.item._id %>" class="btn btn-success btn-sm"  style="margin-left:40px; margin-top: -60px;"><i class="fa fa-trash"></i></a>
+                            </td>
+                            </tr>
+                        <% }) %>
+                      </tbody>
+                      <tfoot>
+                       <tr>
+                        <td class="hidden-xs text-center"><strong>Total:</strong></td>
+                        <td class="hidden-xs text-center"><strong>&#8377;<%= totalPrice %></strong></td>
+                          <td><a href="/shoppingCart" class="btn btn-outline-success btn-block">Proceed <i class="fa fa-angle-right"></i></a></td>
+                          </tr>
+                        </tfoot>
+                      </table>
+             </div>
+             </div>
+          </div>
+        <% } else{ %>
+            <div class="col-md-3">
+                <div class="container sticky-top">
+                    <div class="container text-center" id="cart-container" style="width: 500px; margin-left: 0px;">
+                    <h4>No items in cart</h4>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+</div>
+</div>
+
+
+<script type="text/javascript">
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+$(function () {
+    $(window).on('scroll', function () {
+        if ( $(window).scrollTop() > 10 ) {
+            $('.navbar').addClass('active');
+        } else {
+            $('.navbar').removeClass('active');
+        }
+    });
+  });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>

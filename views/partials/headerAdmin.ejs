@@ -1,0 +1,33 @@
+
+<nav class="navbar navbar-expand-lg  navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+        <div class="navbar-header">
+         <a class="navbar-brand" href="/restaurants">FoodBite</a>
+        </div>
+     <div class="collapse navbar-collapse" id="coll">
+      <ul class="navbar-nav ml-auto">
+          <% if(!currentUser) { %>
+          <li><a class="nav-item nav-link" href="/registerAdmin">Sign Up</a></li>
+          <li><a class="nav-item nav-link" href="/loginAdmin">Login</a></li>
+          <% } else { %>
+          <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i> <%= currentUser.username%></a>
+             <div class="dropdown-menu navbar-dark bg-dark " aria-labelledby="navbarDropdownMenuLink">
+               <a class="dropdown-item" href="/restaurants/:id/adminProfile">My Profile</a>
+             </div>
+           </li>
+           <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             Operations</a>
+              <div class="dropdown-menu navbar-dark bg-dark" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/restaurants/addRestaurant">Add Restaurant</a>
+                <a class="dropdown-item" href="/viewRestaurant">View Restaurants</a>
+              </div>
+            </li>
+          <li><a class="nav-item nav-link" href="/logout">logout</a></li>
+         <% } %>
+        </ul>
+      </div>
+  </div>
+</nav>

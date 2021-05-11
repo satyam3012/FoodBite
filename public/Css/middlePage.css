@@ -1,0 +1,57 @@
+*{
+	font-family: 'Josefin Sans', sans-serif;
+}
+body{
+	font-family: poppins;
+	margin: 0px;
+	padding: 0px;
+}
+
+.navbar-nav a{
+	font-family: poppins;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.navbar-dark .navbar-brand{
+	color: #ffffff;
+	font-size: 25px;
+	font-weight: bold;
+	letter-spacing: 2px;
+}
+
+.dropdown-menu .dropdown-item{
+    color: white;
+}
+
+header{
+	background-image: url('../images/aboutus.jpg');
+	height: 55vh;
+	background-size: cover;
+	background-position: center;
+}
+
+.title{
+	position: absolute;
+	top: 40%;
+	left: 18%;
+	transform: translate(-50%,-50%);
+	color: white;
+	font-family: poppins;
+}
+
+
+#delete-form{
+	display: inline;
+}
+
+.btn.btn-outline-warning{
+	width: 40%;
+	margin-left: 30px;
+	margin-top: 20px;
+}
+.btn{
+  width: 30%;
+  margin-left: 30px;
+  margin-top: 20px;
+}

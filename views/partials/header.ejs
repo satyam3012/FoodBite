@@ -1,0 +1,35 @@
+<!-- Navbar-->
+    <nav class="navbar navbar-expand-lg fixed-top py-3">
+        <div class="container-fluid">
+          <div class="navbar-header">
+           <a class="navbar-brand" href="/home">FoodBite</a>
+          </div>
+            <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a href="/" class="nav-link">Home <span class="sr-only">(current)</span></a></li>
+                    <li class="nav-item"><a href="/about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="/contact" class="nav-link">Contact Us</a></li>
+                    <li class="nav-item"><a href="/shoppingCart" class="nav-link"><i class="fa fa-shopping-cart"></i>
+                      <% if(session.cart!=null){ %>
+                        <span><%= session.cart.totalQty %></span>
+                      <% } %>
+                      </a>
+                    </li>
+                   <%  if(!currentUser) { %>
+                   <li class="nav-item"><a href="/registerUser" class="nav-link">Register</a></li>
+                   <li class="nav-item"><a href="/loginUser" class="nav-link">Login</a></li>
+                   <%  } else { %>
+                       <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account</a>
+                          <div class="dropdown-menu navbar-dark" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/user/<%= currentUser.id %>/userProfile">My Profile</a>
+                            <a class="dropdown-item" href="/shoppingCart">My Cart</a>
+                            <a class="dropdown-item" href="/myOrders">My Order</a>
+                          </div>
+                        </li>
+                  <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+                  <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
